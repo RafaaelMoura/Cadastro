@@ -2,6 +2,9 @@ package com.example.demo.Ninjas;
 
 import com.example.demo.Missoes.MissoesModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 
@@ -10,6 +13,10 @@ import java.util.List;
 
 @Table(name = "tb_cadastro") //Utilize essa anotação com a dependencia chamada "Spring JPA" para trabalhar com persistencia
 //("tb_cadastro") o *tb é utilizado como boa pratica
+
+@Data //Anotação utilizar os Getters e Setters (Utilize a dependencia Lombok)
+@NoArgsConstructor // Anotação utilizar construtor sem argumento nenhum (Utilize a dependencia Lombok)
+@AllArgsConstructor // Anotação utilizar construtor com todos os argumento (Utilize a dependencia Lombok)
 
 public class NinjaModel {
 
