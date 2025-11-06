@@ -3,7 +3,7 @@ package com.example.demo.Ninjas;
 import org.springframework.web.bind.annotation.*;
 
 @RestController //Anotação controladora Controladora
-@RequestMapping //Anotação onde se coloca as rotas
+@RequestMapping("/ninja") //Anotação onde se coloca as rotas
 public class NinjaController {
 
     @GetMapping("/boasVindas")//Ele busca a mensagem de que está no metodo "boasvindas" e apresenta no local "Mapeando"
@@ -19,13 +19,13 @@ public class NinjaController {
     }
 
     //Mostrar todos os ninjas
-    @GetMapping("/todos")
+    @GetMapping("/listar")
     public String mostrarTodosOsNinjas(){
         return "Mostrar Ninja";
     }
 
     //Mostrar ninja por id
-    @GetMapping("/id-ninja")
+    @GetMapping("/listarID")
     public String mostrarNinjaPorId(){
         return "Mostrar Ninja Por Id";
     }
