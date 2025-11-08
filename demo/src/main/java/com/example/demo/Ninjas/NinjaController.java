@@ -2,9 +2,17 @@ package com.example.demo.Ninjas;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController //Anotação controladora Controladora
-@RequestMapping("/ninja") //Anotação onde se coloca as rotas
+@RequestMapping("/ninjas") //Anotação onde se coloca as rotas
 public class NinjaController {
+
+    private NinjaService ninjaService; //Injeta a dependencia da classe NinjaService
+
+    public NinjaController(NinjaService ninjaService) { //Como boa pratica, utilize o construtor sem usar anotações, no modelo service
+        this.ninjaService = ninjaService;
+    }
 
     @GetMapping("/boasVindas")//Ele busca a mensagem de que está no metodo "boasvindas" e apresenta no local "Mapeando"
     public String boasvindas(){
@@ -20,8 +28,8 @@ public class NinjaController {
 
     //Mostrar todos os ninjas
     @GetMapping("/listar")
-    public String mostrarTodosOsNinjas(){
-        return "Mostrar Ninja";
+    public List<NinjaModel> mostrarTodosOsNinjas(){
+        return ninjaService.listarNinjas();
     }
 
     //Mostrar ninja por id
