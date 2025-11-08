@@ -1,6 +1,7 @@
 package com.example.demo.Ninjas;
 
 import com.example.demo.Missoes.MissoesModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -43,6 +44,7 @@ public class NinjaModel {
 
     @JoinColumn(name = "missoes_id") //Junta as duas caracteristicas (Missoes_id - Foreing key ou chave estrageira)
     @ManyToOne //@ManyToOne identifica que um ninja tem uma unica missão
+
     private MissoesModel missoes;
 
 
