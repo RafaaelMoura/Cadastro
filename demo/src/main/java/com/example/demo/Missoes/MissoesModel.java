@@ -1,6 +1,7 @@
 package com.example.demo.Missoes;
 
 import com.example.demo.Ninjas.NinjaModel;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,5 +26,6 @@ public class MissoesModel {
     //@OneToMany identifica que uma missão tem uma varios ninjas
     @OneToMany(mappedBy = "missoes")
     //Utilize o (mappedBy) toda vez que voce for usar o relacionamento de duas tabelas
+    @JsonIgnore //Ele ignora a serealização.
     private List<NinjaModel> ninja;
 }
