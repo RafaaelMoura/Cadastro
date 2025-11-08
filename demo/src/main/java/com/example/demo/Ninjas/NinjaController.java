@@ -33,9 +33,9 @@ public class NinjaController {
     }
 
     //Mostrar ninja por id
-    @GetMapping("/listarID")
-    public String mostrarNinjaPorId(){
-        return "Mostrar Ninja Por Id";
+    @GetMapping("/listar/{id}") //{id} - significa um pathvariable (caminho da variavel), entende que o usuario tem que implementar uma informação como um numero
+    public NinjaModel mostrarNinjaPorId(@PathVariable Long id){ // @PathVariable -  trabalha junto com o {id}
+        return ninjaService.listarNinjaPorId(id);
     }
 
     //Alterar dados do ninja
