@@ -28,11 +28,10 @@ public class MissoesController {
     }
 
 
-
     //POST -> Manda uma requisição para CRIAR as missões
     @PostMapping("/criar")
-    public String criarMissao(){
-        return "Missão criada com sucesso";
+    public MissoesModel criarMissao(@RequestBody MissoesModel missionNew){
+        return missaoService.criarMissao(missionNew);
     }
 
     //PUT -> Manda uma requisição para ALTERAR as missões
@@ -42,9 +41,9 @@ public class MissoesController {
     }
 
     //DELETE -> Manda uma requisição para DELETAR as missões
-    @DeleteMapping("/deletar")
-    public String deletarMissao(){
-        return "Missão deletada com sucesso";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissao(@PathVariable Long id){
+        missaoService.deletarMissao(id);
     }
 
 }

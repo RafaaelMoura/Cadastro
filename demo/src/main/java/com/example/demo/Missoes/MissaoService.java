@@ -27,8 +27,26 @@ public class MissaoService {
     }
 
     //Criar um novo missao
+    public MissoesModel criarMissao(MissoesModel newMission){
+        return missoesRepository.save(newMission);
+    }
 
     //Deletar um cadastro missao pelo ID
+    public void deletarMissao(Long id){
+        missoesRepository.deleteById(id);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
     //Alterar um cadastro
 
