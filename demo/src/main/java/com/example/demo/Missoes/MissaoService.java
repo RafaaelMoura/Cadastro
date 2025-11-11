@@ -1,6 +1,8 @@
 package com.example.demo.Missoes;
                             //EXPLICAÇÃO ESTÁ PASTA NINJA//
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -36,18 +38,14 @@ public class MissaoService {
         missoesRepository.deleteById(id);
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
     //Alterar um cadastro
+    public MissoesModel alterarMissao (Long  id, MissoesModel missaoAlterada){
+        if (missoesRepository.existsById(id)){
+            missaoAlterada.setId(id);
+            return missoesRepository.save(missaoAlterada);
+
+        }
+        return null;
+    }
 
 }
