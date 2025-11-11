@@ -3,6 +3,7 @@ package com.example.demo.Missoes;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class MissaoService {
@@ -19,11 +20,15 @@ public class MissaoService {
         return missoesRepository.findAll();
     }
 
-    //Listar ninjas pot id
+    //Listar missão pot id
+    public MissoesModel missaoPorId(Long id){
+        Optional<MissoesModel> missaoId = missoesRepository.findById(id);
+        return missaoId.orElse(null);
+    }
 
-    //Criar um novo ninja
+    //Criar um novo missao
 
-    //Deletar um cadastro ninja pelo ID
+    //Deletar um cadastro missao pelo ID
 
     //Alterar um cadastro
 
