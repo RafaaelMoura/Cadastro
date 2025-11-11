@@ -3,14 +3,22 @@ package com.example.demo.Missoes;
 
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("missoes")
 public class MissoesController {
 
+    private MissaoService missaoService;
+
+    public MissoesController(MissaoService missaoService) {
+        this.missaoService = missaoService;
+    }
+
     //GET -> Manda uma requisição para MOSTRAR as missões
-    @GetMapping("/listar")
-    public String listarMissao(){
-        return "Missões listadas com sucesso";
+    @GetMapping("/all-missoes")
+    public List<MissoesModel> listarMissao(){
+        return missaoService.listarMissoes();
     }
 
     //POST -> Manda uma requisição para CRIAR as missões
