@@ -19,8 +19,13 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column
     private Long id;
+
+    @Column
     private String nome;
+
+    @Column
     private String dificuldade;
 
     //@OneToMany identifica que uma missão tem uma varios ninjas
