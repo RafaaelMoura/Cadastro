@@ -16,6 +16,8 @@ public class NinjaService {
         this.ninjaRepository = ninjaRepository;
     }
 
+
+
     //Lista todos os ninjas
     public List<NinjaModel> listarNinjas(){
         return ninjaRepository.findAll();
@@ -26,6 +28,12 @@ public class NinjaService {
         Optional<NinjaModel> ninjaPorId = ninjaRepository.findById(id);  //Optional: usado para caso o id buscado não exista - findById: vem da classe NinjaRepositorio-
                 return ninjaPorId.orElse(null); //orElse:usado para trazer o id buscado ou caso não exista-                // que está extendendo o JPA
                                                         // retorna o null.
+    }
+
+    //Criar um novo ninja
+    public NinjaModel adicionarNinja(NinjaModel ninja){
+        return ninjaRepository.save(ninja);
+
     }
 
 }
