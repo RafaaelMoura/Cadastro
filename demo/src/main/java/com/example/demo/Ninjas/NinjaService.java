@@ -42,10 +42,10 @@ public class NinjaService {
     }
 
     //Alterar um cadastro
-    public NinjaModel ninjaAtualizar (Long id, NinjaModel ninja){
+    public NinjaModel ninjaAtualizar (Long id, NinjaModel novoNinja){
         if (ninjaRepository.existsById(id)){
-            ninja.setId(id);
-            return ninjaRepository.save(ninja);
+            novoNinja.setId(id);
+            return ninjaRepository.save(novoNinja);
 
         }
         return null;
