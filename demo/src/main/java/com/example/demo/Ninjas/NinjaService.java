@@ -36,4 +36,19 @@ public class NinjaService {
 
     }
 
+    //Deletar um cadastro ninja pelo ID
+    public void deletarNinjaPorId(Long id){ //Delete é instaciado como "void" pois não tem retorno algum de dado, ele apenas deleta por isso é simples
+       ninjaRepository.deleteById(id);
+    }
+
+    //Alterar um cadastro
+    public NinjaModel ninjaAtualizar (Long id, NinjaModel ninja){
+        if (ninjaRepository.existsById(id)){
+            ninja.setId(id);
+            return ninjaRepository.save(ninja);
+
+        }
+        return null;
+    }
+
 }
