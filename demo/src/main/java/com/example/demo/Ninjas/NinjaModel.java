@@ -42,6 +42,9 @@ public class NinjaModel {
     @Column(name = "idade")
     private int idade;
 
+    @Column(name = "rank")
+    private String rank;
+
     @JoinColumn(name = "missoes_id") //Junta as duas caracteristicas (Missoes_id - Foreing key ou chave estrageira)
     @ManyToOne //@ManyToOne identifica que um ninja tem uma unica missão
 
