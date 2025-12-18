@@ -2,6 +2,7 @@ package com.example.demo.Ninjas;
 
 import org.springframework.stereotype.Service;
 
+import java.security.PublicKey;
 import java.util.List;
 import java.util.Optional;
 
@@ -10,12 +11,12 @@ public class NinjaService {
 
     //Conecta a classe com o service, para conectar com os mapp
     private NinjaRepository ninjaRepository;
+    private NinjaMapper ninjaMapper; // Metodo instaciado após ligações da classe DTO com Mapper
 
-    //Boa pratica uso do construtor sem usar anotacoes no modelo service
-    public NinjaService(NinjaRepository ninjaRepository) {
-        this.ninjaRepository = ninjaRepository;
+    public NinjaService(NinjaMapper ninjaMapper, NinjaRepository ninjaRepository) {
+        this.ninjaMapper = ninjaMapper;
+        this.ninjaRepository = ninjaRepository;//Boa pratica uso do construtor sem usar anotacoes no modelo service
     }
-
 
 
     //Lista todos os ninjas
@@ -31,10 +32,12 @@ public class NinjaService {
     }
 
     //Criar um novo ninja
-    public NinjaModel adicionarNinja(NinjaModel ninja){
-        return ninjaRepository.save(ninja);
-
+    public NinjaDTO criarNinja(NinjaDTO ninjaDTO){
+       NinjaModel ninja = ninjaMapper.map(ninjaDTO);
+       ninja =  ninjaRepository.save(ninja);
+       return ninjaMapper.map(ninja);
     }
+
 
     //Deletar um cadastro ninja pelo ID
     public void deletarNinjaPorId(Long id){ //Delete é instaciado como "void" pois não tem retorno algum de dado, ele apenas deleta por isso é simples

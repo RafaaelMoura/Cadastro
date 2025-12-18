@@ -4,7 +4,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController //Anotação controladora Controladora
+@RestController //Anotação Controladora
 @RequestMapping("/ninjas") //Anotação onde se coloca as rotas
 public class NinjaController {
 
@@ -22,8 +22,8 @@ public class NinjaController {
 
     //Adicionar Ninja
     @PostMapping("/criar")
-    public NinjaModel adicionarNinja(@RequestBody NinjaModel ninja){
-        return ninjaService.adicionarNinja(ninja);
+    public NinjaDTO adicionarNinja(@RequestBody NinjaDTO ninjaDTO){
+        return ninjaService.criarNinja(ninjaDTO);
     }
 
     //Mostrar todos os ninjas
