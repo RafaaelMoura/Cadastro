@@ -28,21 +28,26 @@ public class NinjaController {
 
     //Mostrar todos os ninjas
     @GetMapping("/listar")
-    public List<NinjaModel> mostrarTodosOsNinjas(){
+    public List<NinjaDTO> mostrarTodosOsNinjas(){
         return ninjaService.listarNinjas();
     }
 
+
     //Mostrar ninja por id
     @GetMapping("/listar/{id}") //{id} - significa um pathvariable (caminho da variavel), entende que o usuario tem que implementar uma informação como um numero
-    public NinjaModel mostrarNinjaPorId(@PathVariable Long id){ // @PathVariable -  trabalha junto com o {id}
+    public NinjaDTO mostrarNinjaPorId(@PathVariable Long id){ // @PathVariable -  trabalha junto com o {id}
         return ninjaService.listarNinjaPorId(id);
     }
 
+
+
     //Alterar dados do ninja
     @PutMapping("/alterar/{id}")
-    public NinjaModel alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaModel ninjaNovo){
+    public NinjaDTO alterarNinjaPorId(@PathVariable Long id, @RequestBody NinjaDTO ninjaNovo){
         return ninjaService.ninjaAtualizar(id, ninjaNovo);
     }
+
+
 
     //Deletar Ninja
     @DeleteMapping("/deletar/{id}")
